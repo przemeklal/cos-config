@@ -6,15 +6,17 @@ labels:
   severity: critical
 annotations:
   summary:  Unit {{ $labels.juju_unit }} command {{ $labels.check }} critical or unknown
-  unit: {{ $labels.juju_unit }}
-  check: {{ $labels.check }}
-  value: {{ $value }}
-  juju_model: {{ $labels.juju_model }}
   description: |
     Check provided by nrpe_exporter in model {{ $labels.juju_model }}
+   
+      Unit = {{ $labels.juju_unit }}
+ 
+      Failing check = {{ $labels.check }}
 
-    Legend for value:
-    StatusOK       = 0
-    StatusWarning  = 1
-    StatusCritical = 2
-    StatusUnknown  = 3
+      Value = {{ $value }}
+
+      Legend for Value:
+      StatusOK       = 0
+      StatusWarning  = 1
+      StatusCritical = 2
+      StatusUnknown  = 3
