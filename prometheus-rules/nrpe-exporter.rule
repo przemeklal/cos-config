@@ -8,8 +8,9 @@ groups:
     for: 0m
     labels:
       severity: critical
+      service_description: Unknown reboot on {{ $labels.juju_unit }}
     annotations:
-      summary:  Unknown reboot on {{ $labels.juju_unit }}
+      summary: Unknown reboot on {{ $labels.juju_unit }}
 
   - alert: GenericNrpeAlert
     expr: |
@@ -17,6 +18,7 @@ groups:
     for: 0m
     labels:
       severity: critical
+      service_description: {{ $labels.juju_unit }} {{ $labels.check }} critical or unknown
     annotations:
       summary:  Unit {{ $labels.juju_unit }} command {{ $labels.check }} critical or unknown
       description: |
